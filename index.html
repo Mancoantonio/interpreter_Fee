@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a1020">
+  <title>Interpreter Quest — Week Day · Edición RPG</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="confetti" aria-hidden="true"></canvas>
+  <main class="wrap">
+    <section class="panel" id="panel" aria-label="Propio Quest">
+      <div class="aura"></div><div class="grid-background"></div>
+      <header class="top">
+        <div><h1>INTERPRETER QUEST</h1><div class="subtitle">Trabaja Pajaronql Edition</div></div>
+        <div class="status" id="status">MISSION ACTIVE</div>
+      </header>
+      <div class="hero">
+        <div class="eyebrow">TODAY'S LOOT</div>
+        <div class="money" id="money">$0.00</div>
+        <div class="muted">de US$50.00 · tarifa base US$0.12/min · sin incentivos</div>
+        <div class="level" id="level">LEVEL 1 · ROOKIE</div>
+      </div>
+      <section class="progress-section" aria-label="Progreso diario">
+        <div class="flex-between"><span class="label">QUEST PROGRESS</span><span class="pct" id="pct">0.00%</span></div>
+        <div class="track" id="progress" role="progressbar" aria-label="Progreso hacia la meta de US$50" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="fill" id="fill"></div>
+        </div>
+        <div class="bar-labels"><span>0 MIN</span><span>417 MIN · BOSS DEFEATED</span></div>
+      </section>
+      <section class="stats" aria-label="Estadísticas">
+        <div class="stat"><strong id="mins">0</strong><small>MINUTOS FACTURABLES</small></div>
+        <div class="stat target" id="remainingTile"><strong id="remaining">417</strong><small>MIN PARA EL 100%</small></div>
+        <div class="stat"><strong id="calls">0</strong><small>LLAMADAS DETECTADAS</small></div>
+        <div class="stat"><strong id="moneyRemaining">$50.00</strong><small>US$ PARA LA META</small></div>
+      </section>
+      <section class="achievement" id="achievement" aria-label="Siguiente logro">
+        <div class="achievement-head">
+          <div class="checkpoint" id="mission">CHECKPOINT 25%</div>
+          <div class="tag" id="achievementBadge">MISSION ACTIVE</div>
+        </div>
+        <p class="description" id="hint">Faltan 105 minutos para el próximo checkpoint.</p>
+        <p class="sass" id="hype">El contador no va a llenarse por telepatía.</p>
+        <div class="milestone-track"><div class="milestone-fill" id="milestoneFill"></div></div>
+        <div class="micro"><span id="currentCheckpoint">0% desbloqueado</span><span id="nextCheckpoint">Próximo: 25%</span></div>
+      </section>
+      <section class="boss" id="bossPanel" aria-label="Minutos restantes para la meta final">
+        <div class="number" id="bossMinutes">417</div>
+        <div>
+          <div class="boss-title" id="bossTitle">MINUTOS PARA EL BOSS FINAL (100%)</div>
+          <div class="boss-note" id="bossNote">No importa el próximo checkpoint: estos son los minutos reales que faltan para US$50.</div>
+        </div>
+      </section>
+      <section class="milestones" aria-label="Logros desbloqueados">
+        <div class="milestone" id="m25"><span class="milestone-pct">25%</span>SPAWN</div>
+        <div class="milestone" id="m50"><span class="milestone-pct">50%</span>HALFWAY</div>
+        <div class="milestone" id="m75"><span class="milestone-pct">75%</span>ELITE</div>
+        <div class="milestone" id="m100"><span class="milestone-pct">100%</span>VICTORY</div>
+      </section>
+      <label class="input-label" for="raw">Pega aquí TODO el reporte de Interpretacion</label>
+      <p class="input-hint">Admite registros con saltos de línea o todos pegados. Analiza desde cero cada vez para no duplicar llamadas. El texto se procesa en tu navegador.</p>
+      <textarea id="raw" spellcheck="false" aria-label="Reporte completo de Interpretacion" placeholder="Customer ID&#10;Call Date&#10;Call Start&#10;Duration (Minutes)&#10;Billable&#10;Dropped&#10;Pay&#10;81357&#10;11/11/2026&#10;09:29 AM&#10;6&#10;Yes&#10;No&#10;$0.72"></textarea>
+      <div class="actions"><button id="parse" class="primary" type="button">ANALIZAR REPORTE</button><button id="clear" type="button">LIMPIAR</button></div>
+      <div class="feedback" id="warning" role="status" aria-live="polite"></div>
+      <div class="details" id="details" aria-live="polite">Esperando datos.</div>
+    </section>
+    <div class="footer">Propio Quest · Datos procesados localmente · Los incentivos no se incluyen en los cálculos.</div>
+  </main>
+<script src="script.js"></script>
+</body>
+</html>
